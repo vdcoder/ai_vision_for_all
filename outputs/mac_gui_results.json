@@ -1,0 +1,323 @@
+{
+  "meta": {
+    "original_size": [
+      600,
+      450
+    ],
+    "scaled_size": [
+      600,
+      450
+    ],
+    "scale": 1.0,
+    "model": "gemini-2.5-flash",
+    "media_resolution": "medium",
+    "grid_spacing": 50
+  },
+  "description": "The screenshot displays a control center overlay on a desktop background. The control center shows various system settings and controls, including Wi-Fi, Bluetooth, AirDrop, display brightness, sound volume, and media playback.",
+  "controls": [
+    {
+      "type": "text_input",
+      "label": "Husayn Ghanem",
+      "x": 280,
+      "y": 100,
+      "width": 110,
+      "height": 20,
+      "confidence": 0.9,
+      "center": [
+        335,
+        110
+      ],
+      "original": {
+        "x": 280,
+        "y": 100,
+        "width": 110,
+        "height": 20,
+        "center": [
+          335,
+          110
+        ]
+      }
+    },
+    {
+      "type": "icon_button",
+      "label": "Wi-Fi icon",
+      "x": 450,
+      "y": 100,
+      "width": 20,
+      "height": 20,
+      "confidence": 0.9,
+      "center": [
+        460,
+        110
+      ],
+      "original": {
+        "x": 450,
+        "y": 100,
+        "width": 20,
+        "height": 20,
+        "center": [
+          460,
+          110
+        ]
+      }
+    },
+    {
+      "type": "icon_button",
+      "label": "Power button",
+      "x": 490,
+      "y": 100,
+      "width": 20,
+      "height": 20,
+      "confidence": 0.9,
+      "center": [
+        500,
+        110
+      ],
+      "original": {
+        "x": 490,
+        "y": 100,
+        "width": 20,
+        "height": 20,
+        "center": [
+          500,
+          110
+        ]
+      }
+    },
+    {
+      "type": "icon_button",
+      "label": "Lock icon",
+      "x": 530,
+      "y": 100,
+      "width": 20,
+      "height": 20,
+      "confidence": 0.9,
+      "center": [
+        540,
+        110
+      ],
+      "original": {
+        "x": 530,
+        "y": 100,
+        "width": 20,
+        "height": 20,
+        "center": [
+          540,
+          110
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "label": "Wi-Fi",
+      "x": 280,
+      "y": 130,
+      "width": 130,
+      "height": 50,
+      "confidence": 0.9,
+      "center": [
+        345,
+        155
+      ],
+      "original": {
+        "x": 280,
+        "y": 130,
+        "width": 130,
+        "height": 50,
+        "center": [
+          345,
+          155
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "label": "Bluetooth",
+      "x": 280,
+      "y": 180,
+      "width": 130,
+      "height": 50,
+      "confidence": 0.9,
+      "center": [
+        345,
+        205
+      ],
+      "original": {
+        "x": 280,
+        "y": 180,
+        "width": 130,
+        "height": 50,
+        "center": [
+          345,
+          205
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "label": "AirDrop",
+      "x": 280,
+      "y": 230,
+      "width": 130,
+      "height": 50,
+      "confidence": 0.9,
+      "center": [
+        345,
+        255
+      ],
+      "original": {
+        "x": 280,
+        "y": 230,
+        "width": 130,
+        "height": 50,
+        "center": [
+          345,
+          255
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "label": "Do Not Disturb",
+      "x": 420,
+      "y": 130,
+      "width": 130,
+      "height": 50,
+      "confidence": 0.9,
+      "center": [
+        485,
+        155
+      ],
+      "original": {
+        "x": 420,
+        "y": 130,
+        "width": 130,
+        "height": 50,
+        "center": [
+          485,
+          155
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "label": "Keyboard Brightness",
+      "x": 420,
+      "y": 200,
+      "width": 130,
+      "height": 50,
+      "confidence": 0.9,
+      "center": [
+        485,
+        225
+      ],
+      "original": {
+        "x": 420,
+        "y": 200,
+        "width": 130,
+        "height": 50,
+        "center": [
+          485,
+          225
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "label": "AirPlay Display",
+      "x": 420,
+      "y": 250,
+      "width": 130,
+      "height": 50,
+      "confidence": 0.9,
+      "center": [
+        485,
+        275
+      ],
+      "original": {
+        "x": 420,
+        "y": 250,
+        "width": 130,
+        "height": 50,
+        "center": [
+          485,
+          275
+        ]
+      }
+    },
+    {
+      "type": "slider",
+      "label": "Display Brightness slider",
+      "x": 280,
+      "y": 290,
+      "width": 270,
+      "height": 30,
+      "confidence": 0.9,
+      "center": [
+        415,
+        305
+      ],
+      "original": {
+        "x": 280,
+        "y": 290,
+        "width": 270,
+        "height": 30,
+        "center": [
+          415,
+          305
+        ]
+      }
+    },
+    {
+      "type": "slider",
+      "label": "Volume slider",
+      "x": 280,
+      "y": 340,
+      "width": 270,
+      "height": 30,
+      "confidence": 0.9,
+      "center": [
+        415,
+        355
+      ],
+      "original": {
+        "x": 280,
+        "y": 340,
+        "width": 270,
+        "height": 30,
+        "center": [
+          415,
+          355
+        ]
+      }
+    },
+    {
+      "type": "media_player",
+      "label": "Break My Baby media player",
+      "x": 280,
+      "y": 380,
+      "width": 270,
+      "height": 50,
+      "confidence": 0.9,
+      "center": [
+        415,
+        405
+      ],
+      "original": {
+        "x": 280,
+        "y": 380,
+        "width": 270,
+        "height": 50,
+        "center": [
+          415,
+          405
+        ]
+      }
+    }
+  ],
+  "token_usage": {
+    "prompt_tokens": 668,
+    "candidates_tokens": 1007,
+    "total_tokens": 1675
+  }
+}

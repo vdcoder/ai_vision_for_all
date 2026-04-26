@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ai-vision-for-all"
+version = "0.1.0"
+description = "Ruler-guided screen vision for AI agents that need GUI awareness without native vision."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Victor Diaz" }]
+keywords = ["ai", "agents", "computer-use", "vision", "gui-automation", "gemini", "llm"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "google-genai>=1.0.0",
+  "Pillow>=10.0.0",
+  "python-dotenv>=1.0.0",
+  "numpy>=1.26.0",
+]
+
+[project.scripts]
+aivision = "ai_vision_for_all.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ai_vision_for_all"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

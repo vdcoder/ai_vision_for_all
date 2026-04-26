@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "original_size": [
+      1350,
+      808
+    ],
+    "scaled_size": [
+      768,
+      459
+    ],
+    "scale": 0.568889,
+    "model": "gemini-2.5-flash",
+    "media_resolution": "medium",
+    "grid_spacing": 50
+  },
+  "description": "The screen shows a Windows desktop with a File Explorer window open, displaying the contents of the 'Desktop' folder. Two MP4 video files, 'VID 1.mp4' and 'VID 2.mp4', are visible in the file list.",
+  "controls": [
+    {
+      "type": "menu_item",
+      "label": "VID 1.mp4",
+      "x": 290,
+      "y": 150,
+      "width": 100,
+      "height": 20,
+      "confidence": 1.0,
+      "center": [
+        340,
+        160
+      ],
+      "original": {
+        "x": 510,
+        "y": 264,
+        "width": 176,
+        "height": 35,
+        "center": [
+          598,
+          281
+        ]
+      }
+    },
+    {
+      "type": "menu_item",
+      "label": "VID 2.mp4",
+      "x": 290,
+      "y": 170,
+      "width": 100,
+      "height": 20,
+      "confidence": 1.0,
+      "center": [
+        340,
+        180
+      ],
+      "original": {
+        "x": 510,
+        "y": 299,
+        "width": 176,
+        "height": 35,
+        "center": [
+          598,
+          316
+        ]
+      }
+    }
+  ],
+  "token_usage": {
+    "prompt_tokens": 666,
+    "candidates_tokens": 230,
+    "total_tokens": 1011,
+    "thoughts_tokens": 115
+  }
+}
