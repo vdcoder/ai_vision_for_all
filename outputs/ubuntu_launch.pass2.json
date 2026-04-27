@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "image_size": [
+      1442,
+      793
+    ],
+    "crop": {
+      "x": 126,
+      "y": 383,
+      "width": 721,
+      "height": 396
+    },
+    "target": "the Launch button for Ubuntu 24.04 LTS Noble Numbat",
+    "goal": "spin up an Ubuntu 24.04 virtual machine now trying to click on: the Launch button for Ubuntu 24.04 LTS Noble Numbat",
+    "source_size": [
+      721,
+      396
+    ],
+    "scaled_size": [
+      668,
+      366
+    ],
+    "scale": 0.926491,
+    "margin": 50,
+    "model": "gemini-2.5-flash-lite",
+    "media_resolution": "medium",
+    "grid_spacing": 50,
+    "pass": 2,
+    "passes_total": 4,
+    "crop_factor": 0.5
+  },
+  "description": "The screen displays a list of Ubuntu releases with their codenames and logos. Each release has a 'Launch' button and a settings icon. The goal is to launch Ubuntu 24.04 LTS Noble Numbat.",
+  "controls": [
+    {
+      "type": "button",
+      "label": "Launch",
+      "x": 375,
+      "y": 104,
+      "reason": "This is the 'Launch' button associated with 'Ubuntu 24.04 LTS Noble Numbat', which is the target for the user's goal.",
+      "confidence": 1.0,
+      "scaled": {
+        "x": 325,
+        "y": 54
+      },
+      "original": {
+        "x": 477,
+        "y": 441
+      }
+    }
+  ],
+  "token_usage": {
+    "prompt_tokens": 1005,
+    "candidates_tokens": 160,
+    "total_tokens": 1165
+  }
+}

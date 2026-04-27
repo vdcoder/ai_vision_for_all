@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "image_size": [
+      600,
+      450
+    ],
+    "crop": null,
+    "target": "the Wi-Fi blue circular toggle button",
+    "goal": "turn off wifi now trying to click on: the Wi-Fi blue circular toggle button",
+    "source_size": [
+      600,
+      450
+    ],
+    "scaled_size": [
+      600,
+      450
+    ],
+    "scale": 1.0,
+    "margin": 50,
+    "model": "gemini-2.5-flash",
+    "media_resolution": "medium",
+    "grid_spacing": 50,
+    "pass": 1,
+    "passes_total": 2,
+    "crop_factor": 0.5
+  },
+  "description": "The screen displays a macOS Control Center panel. On the left side, there are connectivity options including Wi-Fi, Bluetooth, and AirDrop. On the right side, there are controls for Do Not Disturb, Keyboard Brightness, and AirPlay Display, along with brightness and volume sliders, and a music player widget at the bottom.",
+  "controls": [
+    {
+      "type": "icon_button",
+      "label": "Wi-Fi toggle button",
+      "x": 328,
+      "y": 188,
+      "reason": "The goal is to turn off Wi-Fi. This blue circular button is the toggle for the Wi-Fi connection, and clicking its center is the most direct way to interact with it.",
+      "confidence": 1.0,
+      "scaled": {
+        "x": 278,
+        "y": 138
+      },
+      "original": {
+        "x": 278,
+        "y": 138
+      }
+    }
+  ],
+  "token_usage": {
+    "prompt_tokens": 988,
+    "candidates_tokens": 191,
+    "total_tokens": 1575,
+    "thoughts_tokens": 396
+  }
+}

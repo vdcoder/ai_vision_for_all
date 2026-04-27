@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "image_size": [
+      1442,
+      793
+    ],
+    "crop": null,
+    "target": "the Launch button for Ubuntu 24.04 LTS Noble Numbat",
+    "goal": "spin up an Ubuntu 24.04 virtual machine now trying to click on: the Launch button for Ubuntu 24.04 LTS Noble Numbat",
+    "source_size": [
+      1442,
+      793
+    ],
+    "scaled_size": [
+      668,
+      367
+    ],
+    "scale": 0.463245,
+    "margin": 50,
+    "model": "gemini-2.5-flash-lite",
+    "media_resolution": "medium",
+    "grid_spacing": 50,
+    "pass": 1,
+    "passes_total": 4,
+    "crop_factor": 0.5
+  },
+  "description": "The screen displays a welcome message for Multipass and a grid of available Ubuntu images. The goal is to launch an Ubuntu 24.04 LTS virtual machine. The user wants to click the 'Launch' button associated with 'Ubuntu 24.04 LTS Noble Numbat'.",
+  "controls": [
+    {
+      "type": "button",
+      "label": "Launch",
+      "x": 275,
+      "y": 319,
+      "reason": "This is the 'Launch' button located directly below the 'Ubuntu 24.04 LTS Noble Numbat' image and text. It is the most direct way to initiate the launch process for the desired VM.",
+      "confidence": 1.0,
+      "scaled": {
+        "x": 225,
+        "y": 269
+      },
+      "original": {
+        "x": 486,
+        "y": 581
+      }
+    }
+  ],
+  "token_usage": {
+    "prompt_tokens": 1005,
+    "candidates_tokens": 186,
+    "total_tokens": 1191
+  }
+}

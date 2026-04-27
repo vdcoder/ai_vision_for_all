@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "image_size": [
+      1350,
+      808
+    ],
+    "crop": null,
+    "target": "the VID 1.mp4 file row",
+    "goal": "open a video file to play now trying to click on: the VID 1.mp4 file row",
+    "source_size": [
+      1350,
+      808
+    ],
+    "scaled_size": [
+      668,
+      399
+    ],
+    "scale": 0.494815,
+    "margin": 50,
+    "model": "gemini-2.5-flash",
+    "media_resolution": "medium",
+    "grid_spacing": 50,
+    "pass": 1,
+    "passes_total": 2,
+    "crop_factor": 0.5
+  },
+  "description": "The screen displays a file explorer window titled 'Desktop'. On the left pane, there are navigation options like Home, Desktop, Documents, Downloads, Pictures, Music, Videos, and Local Disk C. The main content area shows a list of files with columns for Name, Date modified, Type, and Size. Two video files are listed: 'VID 1.mp4' and 'VID 2.mp4'. The goal is to open 'VID 1.mp4'.",
+  "controls": [
+    {
+      "type": "selectable_row",
+      "label": "VID 1.mp4 file row",
+      "x": 300,
+      "y": 170,
+      "reason": "The goal is to open the 'VID 1.mp4' file. Clicking on the center of the file name text within its row is the most common and reliable way to open a file in a file explorer. The text 'VID 1.mp4' is horizontally centered around x=300 and vertically centered around y=170.",
+      "confidence": 1.0,
+      "scaled": {
+        "x": 250,
+        "y": 120
+      },
+      "original": {
+        "x": 505,
+        "y": 243
+      }
+    }
+  ],
+  "token_usage": {
+    "prompt_tokens": 992,
+    "candidates_tokens": 261,
+    "total_tokens": 1921,
+    "thoughts_tokens": 668
+  }
+}

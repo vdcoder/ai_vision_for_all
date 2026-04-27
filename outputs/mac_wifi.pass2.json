@@ -1,0 +1,137 @@
+{
+  "meta": {
+    "image_size": [
+      600,
+      450
+    ],
+    "crop": {
+      "x": 128,
+      "y": 26,
+      "width": 300,
+      "height": 225
+    },
+    "target": "the Wi-Fi blue circular toggle button",
+    "goal": "turn off wifi now trying to click on: the Wi-Fi blue circular toggle button",
+    "source_size": [
+      300,
+      225
+    ],
+    "scaled_size": [
+      300,
+      225
+    ],
+    "scale": 1.0,
+    "margin": 50,
+    "model": "gemini-2.5-flash",
+    "media_resolution": "medium",
+    "grid_spacing": 50,
+    "pass": 2,
+    "passes_total": 2,
+    "crop_factor": 0.5
+  },
+  "description": "The screen displays a quick settings or control center interface, likely from a mobile device. At the top, a user profile with the name 'Huseyin Emanet' is visible. Below this, there are several circular toggle buttons with corresponding labels. The visible toggles are for 'Wi-Fi', 'Bluetooth', and 'Airdrop'. The 'Wi-Fi' toggle is currently active, indicated by its blue color and the text 'Superonline 5G' below it. The goal is to turn off Wi-Fi by clicking its toggle button.",
+  "controls": [
+    {
+      "type": "icon_button",
+      "label": "Wi-Fi toggle button",
+      "x": 210,
+      "y": 160,
+      "reason": "The goal is to turn off Wi-Fi, and this is the blue circular toggle button specifically identified by the user for Wi-Fi. Clicking the center of the icon within the circle is the most precise target.",
+      "confidence": 1.0,
+      "scaled": {
+        "x": 160,
+        "y": 110
+      },
+      "original": {
+        "x": 288,
+        "y": 136
+      }
+    },
+    {
+      "type": "menu_item",
+      "label": "Wi-Fi",
+      "x": 260,
+      "y": 160,
+      "reason": "This is the text label for the Wi-Fi setting. Clicking on the text label is an alternative way to interact with the Wi-Fi setting, potentially opening more options or toggling it.",
+      "confidence": 0.8,
+      "scaled": {
+        "x": 210,
+        "y": 110
+      },
+      "original": {
+        "x": 338,
+        "y": 136
+      }
+    },
+    {
+      "type": "icon_button",
+      "label": "Bluetooth toggle button",
+      "x": 210,
+      "y": 210,
+      "reason": "This is the circular toggle button for Bluetooth. While not the primary goal, it is a clearly clickable control.",
+      "confidence": 0.7,
+      "scaled": {
+        "x": 160,
+        "y": 160
+      },
+      "original": {
+        "x": 288,
+        "y": 186
+      }
+    },
+    {
+      "type": "menu_item",
+      "label": "Bluetooth",
+      "x": 260,
+      "y": 210,
+      "reason": "This is the text label for the Bluetooth setting. While not the primary goal, it is a clearly clickable control.",
+      "confidence": 0.6,
+      "scaled": {
+        "x": 210,
+        "y": 160
+      },
+      "original": {
+        "x": 338,
+        "y": 186
+      }
+    },
+    {
+      "type": "icon_button",
+      "label": "Airdrop toggle button",
+      "x": 210,
+      "y": 260,
+      "reason": "This is the circular toggle button for Airdrop. While not the primary goal, it is a clearly clickable control.",
+      "confidence": 0.7,
+      "scaled": {
+        "x": 160,
+        "y": 210
+      },
+      "original": {
+        "x": 288,
+        "y": 236
+      }
+    },
+    {
+      "type": "menu_item",
+      "label": "Airdrop",
+      "x": 260,
+      "y": 260,
+      "reason": "This is the text label for the Airdrop setting. While not the primary goal, it is a clearly clickable control.",
+      "confidence": 0.6,
+      "scaled": {
+        "x": 210,
+        "y": 210
+      },
+      "original": {
+        "x": 338,
+        "y": 236
+      }
+    }
+  ],
+  "token_usage": {
+    "prompt_tokens": 988,
+    "candidates_tokens": 681,
+    "total_tokens": 2211,
+    "thoughts_tokens": 542
+  }
+}

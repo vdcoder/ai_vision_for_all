@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "image_size": [
+      1350,
+      808
+    ],
+    "crop": {
+      "x": 168,
+      "y": 41,
+      "width": 675,
+      "height": 404
+    },
+    "target": "the VID 1.mp4 file row",
+    "goal": "open a video file to play now trying to click on: the VID 1.mp4 file row",
+    "source_size": [
+      675,
+      404
+    ],
+    "scaled_size": [
+      668,
+      399
+    ],
+    "scale": 0.98963,
+    "margin": 50,
+    "model": "gemini-2.5-flash",
+    "media_resolution": "medium",
+    "grid_spacing": 50,
+    "pass": 2,
+    "passes_total": 2,
+    "crop_factor": 0.5
+  },
+  "description": "The screen displays a file explorer-like interface. On the left, there's a navigation pane with 'Home', 'Desktop', 'Documents', and 'Downloads'. The main content area shows a list of files with 'Name' and 'Date modified' headers. Two video files, 'VID 1.mp4' and 'VID 2.mp4', are visible.",
+  "controls": [
+    {
+      "type": "selectable_row",
+      "label": "VID 1.mp4",
+      "x": 450,
+      "y": 275,
+      "reason": "The goal is to open the 'VID 1.mp4' file. Clicking on the center of the file name text is the most direct and accurate way to select and open this specific file.",
+      "confidence": 1.0,
+      "scaled": {
+        "x": 400,
+        "y": 225
+      },
+      "original": {
+        "x": 572,
+        "y": 268
+      }
+    }
+  ],
+  "token_usage": {
+    "prompt_tokens": 992,
+    "candidates_tokens": 205,
+    "total_tokens": 1576,
+    "thoughts_tokens": 379
+  }
+}
