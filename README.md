@@ -42,6 +42,8 @@ This project treats the model as an **observer**, not an oracle. Returned coordi
 
 ### Iterative refinement
 
+The important trick is not asking the model to be perfect in one glance. Full-screen vision finds where to look; cropped vision earns the click.
+
 One pass places the model in the right area. `--passes N` automatically zooms in on the best hit each round, halving the source area on each axis by default:
 
 | Pass | Area covered | What the model sees |
@@ -175,7 +177,23 @@ Observed on the three included screenshots. Not a rigorous benchmark — your re
 | `gemini-2.5-flash` | 2 | $0.30 / M tokens | $2.50 / M tokens |
 | `gemini-2.5-flash-lite` | 5 | $0.10 / M tokens | $0.40 / M tokens |
 
-Flash-lite with 5 passes reaches the same precision as Flash with 2, at roughly ¼ the cost. For high-volume pipelines, the difference matters.
+In these three demo screenshots, Flash Lite with 5 passes reached the same final click quality as Flash with 2 passes, at roughly ¼ the model cost. This is not a benchmark; it is an early signal that structured re-observation can trade extra cheap calls for precision. For high-volume pipelines, the difference matters.
+
+---
+
+## Reproduce the demo
+
+```bash
+aivision analyze examples/win11_file_explorer.png \
+  --goal "open VID 1.mp4" \
+  --target "VID 1.mp4 in File Explorer" \
+  --passes 2 \
+  --preview outputs/win11_vid_ruler.png \
+  --output outputs/win11_vid_result.json
+
+aivision overlay examples/win11_file_explorer.png outputs/win11_vid_result.json \
+  --output outputs/win11_vid_overlay.png
+```
 
 ---
 

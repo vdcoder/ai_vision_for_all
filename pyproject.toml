@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "ai-vision-for-all"
 version = "0.1.0"
-description = "Ruler-guided screen vision for AI agents that need GUI awareness without native vision."
+description = "Multi-pass, ruler-guided screen vision for AI agents that need reliable GUI click coordinates."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
