@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "image_size": [
+      1442,
+      793
+    ],
+    "crop": {
+      "x": 337,
+      "y": 407,
+      "width": 180,
+      "height": 99
+    },
+    "target": "the Launch button for Ubuntu 24.04 LTS Noble Numbat",
+    "goal": "spin up an Ubuntu 24.04 virtual machine now trying to click on: the Launch button for Ubuntu 24.04 LTS Noble Numbat",
+    "source_size": [
+      180,
+      99
+    ],
+    "scaled_size": [
+      180,
+      99
+    ],
+    "scale": 1.0,
+    "margin": 50,
+    "model": "gemini-2.5-flash-lite",
+    "media_resolution": "medium",
+    "grid_spacing": 50,
+    "pass": 4,
+    "passes_total": 4,
+    "crop_factor": 0.5
+  },
+  "description": "The screen shows a button labeled 'Launch' and a smaller button or icon to its right. The goal is to click the 'Launch' button to start an Ubuntu 24.04 virtual machine.",
+  "controls": [
+    {
+      "type": "button",
+      "label": "Launch",
+      "x": 150,
+      "y": 99,
+      "reason": "This is the 'Launch' button, which is the primary control for initiating the virtual machine spin-up process. The center of the button is the most appropriate click target.",
+      "confidence": 1.0,
+      "scaled": {
+        "x": 100,
+        "y": 49
+      },
+      "original": {
+        "x": 437,
+        "y": 456
+      }
+    }
+  ],
+  "token_usage": {
+    "prompt_tokens": 1005,
+    "candidates_tokens": 156,
+    "total_tokens": 1161
+  }
+}

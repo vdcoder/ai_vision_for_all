@@ -1,115 +1,203 @@
-# AI Vision for All
+﻿# AI Vision for All
 
-**Ruler-guided screen vision for AI agents that need to understand and operate GUIs.**
+Give any AI agent a reliable pair of eyes — without touching its architecture.
 
-Most agent systems assume the model already has reliable screen vision. Many useful agents do not. This project gives any orchestrator a practical bridge: take a screenshot, draw a machine-readable ruler/grid over it, ask a vision model to identify controls, then convert the result back into original screen coordinates for verification or GUI automation.
+A screenshot becomes a ruler-guided workspace. A vision model reads the rulers like a physical ruler and returns a structured click target for each UI control. Every coordinate is traceable back to the original full-resolution image. Works on any GUI — Mac, Windows, Linux — with no retraining or browser extensions.
 
-The core idea is intentionally small:
+MIT-licensed. Built for progress.
 
-1. Capture or provide a screenshot.
-2. Downscale it to a predictable vision-token budget.
-3. Add visual coordinate rulers and grid lines.
-4. Ask a vision model for structured UI controls.
-5. Validate/clamp the boxes.
-6. Optionally draw an overlay on the original screenshot before any click is trusted.
+---
 
-This is useful for:
+## Results
 
-- agentic GUI workflows,
-- “computer use” experiments,
-- AI systems that can reason but lack native vision,
-- cross-agent delegation where one AI acts as the visual observer for another,
-- accessibility-style UI mapping,
-- deterministic verification before automation.
+Three real screenshots. Three platforms. The crosshair marks the model's best predicted click point, drawn back onto the **original full-resolution screenshot**.
 
-## Why the ruler matters
+| macOS Control Center | Ubuntu Multipass | Windows 11 File Explorer |
+|:---:|:---:|:---:|
+| ![macOS result](outputs/mac_wifi_overlay.png) | ![Ubuntu result](outputs/ubuntu_launch_overlay.png) | ![Win11 result](outputs/win11_vid_overlay.png) |
+| *turn off Wi-Fi* | *launch Ubuntu 24.04 LTS* | *open VID 1.mp4* |
 
-Vision models can describe screens well, but raw pixel coordinates are often unreliable. The ruler overlay gives the model visible spatial anchors. Instead of guessing where a button is, the model can read grid/ruler labels and return coordinates in the image’s actual pixel space.
+Your mileage may vary. These represent typical results with the default model and a small number of passes.
 
-This project treats the model as an **observer**, not an oracle. The returned coordinates are meant to be inspected, clamped, verified, and only then handed to automation code.
+---
+
+## How it works
+
+```text
+Screenshot
+   ↓  scale to bounded token budget
+   ↓  paste onto white canvas with ruler margins
+   ↓  draw XOR grid lines + bold red ruler labels
+   ↓  ask vision model (reads rulers → pixel click coordinates)
+   ↓  validate bounds, map canvas coords → original coords
+   ↓  draw verification overlay
+   ↓  your automation, after policy approval
+```
+
+### The ruler insight
+
+Vision models can describe screens. Getting reliable pixel coordinates is harder. The ruler overlay gives the model spatial anchors — the same way a human uses a physical ruler to read a diagram. Rather than estimating coordinates in an abstract space, the model measures from the ruler ticks it can see.
+
+This project treats the model as an **observer**, not an oracle. Returned coordinates are meant to be inspected, verified, and only then handed to automation code.
+
+### Iterative refinement
+
+One pass places the model in the right area. `--passes N` automatically zooms in on the best hit each round, halving the source area on each axis by default:
+
+| Pass | Area covered | What the model sees |
+|:---:|:---|:---|
+| 1 | Full screenshot | Wide context, initial location |
+| 2 | 50% each axis, centred on pass-1 click | Finer ruler marks, tighter focus |
+| N | 50% of previous pass source | Progressively more precise |
+
+| Pass 1 — full context | Pass 2 — zoomed in |
+|:---:|:---:|
+| ![pass 1 ruler](outputs/mac_wifi_ruler.pass1.png) | ![pass 2 ruler](outputs/mac_wifi_ruler.pass2.png) |
+
+---
 
 ## Install
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
+
+# macOS / Linux
+source .venv/bin/activate
+# Windows
+.venv\Scripts\activate
+
 pip install -e .
 cp .env.example .env
-# edit .env and set GEMINI_API_KEY
+# edit .env — add your GEMINI_API_KEY
 ```
 
-## Quick start
+---
 
-Create a ruler preview without calling any model:
+## Usage
+
+### 1. Preview — see what the model sees (no API call)
 
 ```bash
-aivision preview screenshot.png --output outputs/ruler_preview.png
+aivision preview screenshot.png --output outputs/ruler.png
 ```
 
-Analyze a screenshot:
+### 2. Analyze — get click coordinates
 
 ```bash
 aivision analyze screenshot.png \
-  --goal "create a new C++ project" \
-  --preview outputs/ruler_preview.png \
+  --goal "turn off Wi-Fi" \
+  --target "the Wi-Fi toggle" \
+  --passes 2 \
+  --preview outputs/ruler.png \
   --output outputs/result.json
 ```
 
-Draw the model’s boxes back onto the original full-resolution screenshot:
+With `--passes 2`, per-pass files are written alongside the final result:
+
+```
+outputs/result.pass1.json   — first pass (full screenshot)
+outputs/result.pass2.json   — second pass (zoomed in)
+outputs/result.json         — copy of the final pass
+
+outputs/ruler.pass1.png     — what the model saw in pass 1
+outputs/ruler.pass2.png     — what the model saw in pass 2
+outputs/ruler.png           — copy of the final pass ruler
+```
+
+### 3. Overlay — verify before trusting
 
 ```bash
 aivision overlay screenshot.png outputs/result.json \
-  --output outputs/verify_overlay.png
+  --output outputs/verify.png
 ```
 
-The JSON includes scaled-image coordinates plus original-image coordinates:
+---
+
+## Output format
 
 ```json
 {
+  "meta": {
+    "source_size": [393, 416],
+    "scaled_size": [395, 418],
+    "scale": 1.005,
+    "model": "gemini-2.5-flash",
+    "pass": 2,
+    "passes_total": 2,
+    "crop_factor": 0.5
+  },
+  "description": "macOS Control Center showing Wi-Fi connected to Superonline 5G ...",
   "controls": [
     {
-      "type": "link",
-      "label": "Create a new project",
-      "x": 585,
-      "y": 100,
-      "width": 140,
-      "height": 20,
-      "center": [655, 110],
-      "original": {
-        "x": 1075,
-        "y": 184,
-        "width": 257,
-        "height": 37,
-        "center": [1203, 202]
-      }
+      "type": "button",
+      "label": "Wi-Fi",
+      "x": 358,
+      "y": 165,
+      "reason": "Centre of the circular Wi-Fi icon. Ruler horizontal ~350 + 8, vertical ~150 + 15.",
+      "confidence": 0.97,
+      "scaled": { "x": 308, "y": 115 },
+      "original": { "x": 182, "y": 68 }
     }
   ]
 }
 ```
 
-## Current status
+**`original.x` / `original.y`** is the click point in the full-resolution original screenshot — pass this to your automation layer.
 
-This is an early developer prototype. The included CLI is enough to demonstrate the concept and produce inspectable JSON/overlays. It is not yet a safe autonomous desktop driver.
+`scaled` and canvas `x`/`y` are preserved for inspection and debugging.
 
-Recommended next steps before using it for real automation:
+---
 
-- add OS-level screenshot capture helpers,
-- add optional mouse/keyboard action adapters behind explicit confirmation gates,
-- add OCR fallback for text-heavy UIs,
-- add regression tests using fixed screenshots,
-- add confidence thresholds and a “verify before click” policy,
-- add a local-model path for privacy-sensitive screens.
+## Flags
+
+```
+aivision analyze <image>
+  --goal STR          What the agent is trying to accomplish (required)
+  --target STR        The specific control to find (recommended — improves focus)
+  --passes N          Iterative zoom passes, default 1
+  --crop-factor F     Crop diameter per axis as fraction of previous source, default 0.5
+  --preview PATH      Save the ruler image the model actually saw
+  --output PATH       Save JSON result (default: stdout)
+  --model STR         Gemini model, default gemini-2.5-flash-lite
+  --rectangle X,Y,W,H Manual initial crop in original-image coordinates
+  --grid N            Grid spacing in pixels, default 50
+  --margin N          Canvas margin in pixels, default 50
+```
+
+---
+
+## Model comparison
+
+Observed on the three included screenshots. Not a rigorous benchmark — your results will vary by UI complexity and goal specificity.
+
+| Model | Passes for reliable result | Input price | Output price |
+|:---|:---:|:---:|:---:|
+| `gemini-2.5-flash` | 2 | $0.30 / M tokens | $2.50 / M tokens |
+| `gemini-2.5-flash-lite` | 4 | $0.10 / M tokens | $0.40 / M tokens |
+
+Flash-lite with 4 passes reaches the same precision as Flash with 2, at roughly ¼ the cost. For high-volume pipelines, the difference matters.
+
+---
 
 ## Safety posture
 
-Do not run automation against destructive UIs without a confirmation layer. For agentic workflows, prefer this chain:
+This tool makes it easier for agents to observe GUIs. Do not wire it directly to mouse and keyboard automation without a confirmation layer.
 
 ```text
-observe -> propose action -> verify target -> require policy approval -> execute -> observe again
+observe → propose action → verify target → require policy approval → execute → observe again
 ```
 
-The project is designed to make that verification loop easier, not to bypass it.
+The `overlay` command exists specifically for the verify step. Use it.
+
+Recommended additions before trusting this in production:
+- OS-level screenshot capture helpers
+- Confidence thresholds and "verify before click" policy enforcement
+- OCR fallback for text-heavy UIs
+- Local-model path for privacy-sensitive screens
+- Action adapters behind explicit approval gates
+
+---
 
 ## License
 
-MIT
+MIT. Built for progress. Use it freely.
