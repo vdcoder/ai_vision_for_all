@@ -47,7 +47,7 @@ aivision analyze screenshot.png \
   --goal "turn off Wi-Fi" \
   --target "the Wi-Fi toggle button" \
   --model gemini-2.5-flash-lite \
-  --passes 4 \
+  --passes 5 \
   --preview outputs/ruler.png \
   --output outputs/result.json
 ```
@@ -89,14 +89,14 @@ aivision overlay ./inputs/mac_gui.png outputs/mac_wifi.json \
   --output outputs/mac_wifi_overlay.png
 ```
 
-### Ubuntu — launch a VM (4-pass gemini-2.5-flash-lite)
+### Ubuntu — launch a VM (5-pass gemini-2.5-flash-lite)
 
 ```bash
 aivision analyze ./inputs/ubuntu_gui.png \
   --goal "spin up an Ubuntu 24.04 virtual machine" \
   --target "the Launch button for Ubuntu 24.04 LTS Noble Numbat" \
   --model gemini-2.5-flash-lite \
-  --passes 4 \
+  --passes 5 \
   --preview outputs/ubuntu_launch_ruler.png \
   --output outputs/ubuntu_launch.json
 

@@ -26,7 +26,7 @@
     "media_resolution": "medium",
     "grid_spacing": 50,
     "pass": 4,
-    "passes_total": 4,
+    "passes_total": 5,
     "crop_factor": 0.5
   },
   "description": "The screen shows a button labeled 'Launch' and a smaller button or icon to its right. The goal is to click the 'Launch' button to start an Ubuntu 24.04 virtual machine.",

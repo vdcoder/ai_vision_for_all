@@ -21,7 +21,7 @@
     "media_resolution": "medium",
     "grid_spacing": 50,
     "pass": 1,
-    "passes_total": 4,
+    "passes_total": 5,
     "crop_factor": 0.5
   },
   "description": "The screen displays a welcome message for Multipass and a grid of available Ubuntu images. The goal is to launch an Ubuntu 24.04 LTS virtual machine. The user wants to click the 'Launch' button associated with 'Ubuntu 24.04 LTS Noble Numbat'.",

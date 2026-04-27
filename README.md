@@ -173,9 +173,9 @@ Observed on the three included screenshots. Not a rigorous benchmark — your re
 | Model | Passes for reliable result | Input price | Output price |
 |:---|:---:|:---:|:---:|
 | `gemini-2.5-flash` | 2 | $0.30 / M tokens | $2.50 / M tokens |
-| `gemini-2.5-flash-lite` | 4 | $0.10 / M tokens | $0.40 / M tokens |
+| `gemini-2.5-flash-lite` | 5 | $0.10 / M tokens | $0.40 / M tokens |
 
-Flash-lite with 4 passes reaches the same precision as Flash with 2, at roughly ¼ the cost. For high-volume pipelines, the difference matters.
+Flash-lite with 5 passes reaches the same precision as Flash with 2, at roughly ¼ the cost. For high-volume pipelines, the difference matters.
 
 ---
 
